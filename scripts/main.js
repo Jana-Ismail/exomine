@@ -6,6 +6,8 @@
 // and re-renders the html of the main container when state changes
 
 // imports here
+// import { getGovernors } from "../managers/governorManager.js"
+
 
 // grab the #main-container element and store in variable
 const mainContainer = document.querySelector("#main-container")
@@ -45,3 +47,5 @@ render()
 document.addEventListener("stateChanged", () => {
     render()
 })
+
+// console.log(await getGovernors())
