@@ -19,7 +19,7 @@ export const Governors = async () => {
                 <option value="${governor.id}">${governor.name}</option>
             `
         }
-    })
+    }).join()
 
     html += `</select>`
 
