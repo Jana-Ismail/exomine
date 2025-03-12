@@ -5,6 +5,8 @@
 // and set up click event to call a custom click event that calls the render() function
 // and re-renders the html of the main container when state changes
 
+import { Governors } from "./Governors.js"
+
 // imports here
 // import { getGovernors } from "../managers/governorManager.js"
 
@@ -13,7 +15,7 @@
 const mainContainer = document.querySelector("#main-container")
 
 // function to render main html content of page
-const render = () => {
+const render = async () => {
 
     mainContainer.innerHTML = `
         <header>
@@ -21,7 +23,7 @@ const render = () => {
         </header>
         <main>
             <section id="governor-select-container">
-
+                ${await Governors()}
             </section>
             <section id="selected-governor-colony-minerals-container">
             
