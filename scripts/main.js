@@ -1,0 +1,47 @@
+// Main module to grab the #main-container from the Dom and store it in a variable,
+// set up a render() function to set up the html structure of the main container
+// and call the component functions in the proper place in that html structure,
+// call the render() function,
+// and set up click event to call a custom click event that calls the render() function
+// and re-renders the html of the main container when state changes
+
+// imports here
+
+// grab the #main-container element and store in variable
+const mainContainer = document.querySelector("#main-container")
+
+// function to render main html content of page
+const render = () => {
+
+    mainContainer.innerHTML = `
+        <header>
+            <h1>Exomine</h1>
+        </header>
+        <main>
+            <section id="governor-select-container">
+
+            </section>
+            <section id="selected-governor-colony-minerals-container">
+            
+            </section>
+            <section id="facility-select-container">
+            
+            </section>
+            <section id="selected-facility-minerals-container">
+            
+            </section>
+            <section id="cart-container">
+
+            </section>
+        </main>
+
+    `
+}
+
+// call render() function
+render()
+
+// click event to listen for custom "stateChanged" event and re-render main html when state changes
+document.addEventListener("stateChanged", () => {
+    render()
+})
