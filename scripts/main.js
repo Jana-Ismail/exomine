@@ -5,6 +5,7 @@
 // and set up click event to call a custom click event that calls the render() function
 // and re-renders the html of the main container when state changes
 
+import { ColonyMinerals } from "./ColonyMinerals.js"
 import { Governors } from "./Governors.js"
 
 // imports here
@@ -26,7 +27,7 @@ const render = async () => {
                 ${await Governors()}
             </section>
             <section id="selected-governor-colony-minerals-container">
-            
+                ${await ColonyMinerals()}
             </section>
             <section id="facility-select-container">
             
