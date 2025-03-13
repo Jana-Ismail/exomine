@@ -1,5 +1,6 @@
 // imports
 import { getGovernors } from "../managers/governorManager.js";
+import { setGovernor } from "./TransientState.js";
 
 // Component function to render the html for a select dropdown with options for the active governors
 // inside the #governor-select-container in the main.js render() function
@@ -9,7 +10,7 @@ export const Governors = async () => {
 
     let html = `
         <label for="governor-select-dropdown">Choose Governor</label>
-        <select id="governor-select-dropdown">
+        <select id="governor-select-dropdown" name="governor">
             <option value="0"></option>
     `
 
@@ -19,9 +20,22 @@ export const Governors = async () => {
                 <option value="${governor.id}">${governor.name}</option>
             `
         }
-    }).join()
+    }).join("")
 
     html += `</select>`
 
     return html
 }
+
+const handleGovernorChange = (event) => {
+    if (event.target.name === "governor") {
+        const selectedGovernorId = parseInt(event.target.value)
+        // console.log(selectedGovernorId)
+        setGovernor(selectedGovernorId)
+    }
+}
+
+document.addEventListener(
+    "change", 
+    handleGovernorChange
+)
