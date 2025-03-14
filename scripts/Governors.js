@@ -1,6 +1,6 @@
 // imports
 import { getGovernors } from "../managers/governorManager.js";
-import { setColony, setGovernor } from "./TransientState.js";
+import { setColony, setGovernor, state } from "./TransientState.js";
 
 // Component function to render the html for a select dropdown with options for the active governors
 // inside the #governor-select-container in the main.js render() function
@@ -16,8 +16,10 @@ export const Governors = async () => {
 
     html += governors.map(governor => {
         if (governor.isActive) {
+            const isSelected = governor.id === state.selectedGovernorId
+
             return `
-                <option value="${governor.id}" data-colony-id="${governor.colonyId}">${governor.name}</option>
+                <option value="${governor.id}" data-colony-id="${governor.colonyId}" ${isSelected ? 'selected' : ''}>${governor.name}</option>
             `
         }
     }).join("")
