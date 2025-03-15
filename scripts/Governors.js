@@ -34,7 +34,7 @@ const handleGovernorChange = (event) => {
         const selectedOption = event.target.options[event.target.selectedIndex]
         const selectedGovernorId = parseInt(event.target.value)
         const selectedGovernorColonyId = parseInt(selectedOption.dataset.colonyId)
-        // console.log(selectedGovernorId)
+        
         setGovernor(selectedGovernorId)
         setColony(selectedGovernorColonyId)
     }

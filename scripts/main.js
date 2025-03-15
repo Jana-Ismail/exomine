@@ -6,6 +6,7 @@
 // and re-renders the html of the main container when state changes
 
 import { ColonyMinerals } from "./ColonyMinerals.js"
+import { Facilities } from "./Facilities.js"
 import { Governors } from "./Governors.js"
 
 // imports here
@@ -30,7 +31,7 @@ const render = async () => {
                 ${await ColonyMinerals()}
             </section>
             <section id="facility-select-container">
-            
+                ${await Facilities()}
             </section>
             <section id="selected-facility-minerals-container">
             
