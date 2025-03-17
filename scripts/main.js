@@ -5,6 +5,7 @@
 // and set up click event to call a custom click event that calls the render() function
 // and re-renders the html of the main container when state changes
 
+import { Cart } from "./Cart.js"
 import { ColonyMinerals } from "./ColonyMinerals.js"
 import { Facilities } from "./Facilities.js"
 import { FacilityMinerals } from "./FacilityMinerals.js"
@@ -38,7 +39,7 @@ const render = async () => {
                 ${await FacilityMinerals()}
             </section>
             <section id="cart-container">
-
+                ${await Cart()}
             </section>
         </main>
 
