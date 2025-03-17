@@ -7,6 +7,7 @@
 
 import { ColonyMinerals } from "./ColonyMinerals.js"
 import { Facilities } from "./Facilities.js"
+import { FacilityMinerals } from "./FacilityMinerals.js"
 import { Governors } from "./Governors.js"
 
 // imports here
@@ -34,7 +35,7 @@ const render = async () => {
                 ${await Facilities()}
             </section>
             <section id="selected-facility-minerals-container">
-            
+                ${await FacilityMinerals()}
             </section>
             <section id="cart-container">
 
