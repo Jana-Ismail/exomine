@@ -5,3 +5,10 @@ export const getFacilities = async () => {
 
     return facilitiesArray
 }
+
+export const getFacility = async (facilityId) => {
+    const facilityFetch = await fetch(`http://localhost:8088/facilities/${facilityId}`)
+    const facilityObj = await facilityFetch.json()
+
+    return facilityObj
+}

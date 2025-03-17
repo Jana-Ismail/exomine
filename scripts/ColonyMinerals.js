@@ -13,15 +13,18 @@ export const ColonyMinerals = async () => {
         const colonyObj = await getColony(state.selectedGovernorColonyId)
         const colonyMineralsArr = await getColonyMineralsFromColonyId(state.selectedGovernorColonyId)
 
-        html = `<h2>${colonyObj.name}</h2>`
+        html = `
+            <h2>${colonyObj.name} Minerals</h2>
+            <ul class="colony-minerals-list">
+        `
 
         html += colonyMineralsArr.map(colonyMineral => {
             return `
-                <ul>
-                    <li>${colonyMineral.quantity} tons of ${colonyMineral.mineral.name}</li>
-                </ul>
+                    <li class="colony-minerals-list-item">${colonyMineral.quantity} tons of ${colonyMineral.mineral.name}</li>
             `
         }).join("")
+
+        html += `</ul>`
     }
 
     return html
