@@ -5,3 +5,10 @@ export const getFacilityMineralsFromFacilityId = async (facilityId) => {
 
     return facilityMineralsArr
 }
+
+export const getFacilityMineralFromFacilityMineralId = async (facilityMineralId) => {
+    const facilityMineralFetch = await fetch(`http://localhost:8088/facilityMinerals/${facilityMineralId}?_expand=mineral&_expand=facility`)
+    const facilityMineralObj = await facilityMineralFetch.json()
+
+    return facilityMineralObj
+}

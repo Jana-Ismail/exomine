@@ -1,7 +1,7 @@
 // imports
 import { getFacility } from "../managers/facilityManager.js";
 import { getFacilityMineralsFromFacilityId } from "../managers/facilityMineralManager.js";
-import { state } from "./TransientState.js";
+import { setFacilityMineral, state } from "./TransientState.js";
 
 // Component function to render the html for the facility minerals of the selected facility
 // inside the #selected-facility-minerals-container in the main.js render() function
@@ -18,9 +18,11 @@ export const FacilityMinerals = async () => {
         `
 
         html += facilityMineralsArr.map(facilityMineral => {
+            const isSelected = facilityMineral.id === state.selectedFacilityMineralId
+
             return `
                 <div>
-                    <input type="radio" name="facility-mineral"> ${facilityMineral.quantity} tons of ${facilityMineral.mineral.name}
+                    <input type="radio" value="${facilityMineral.id}" data-type="facility-mineral" name="facility-mineral" ${isSelected ? "checked" : ""}> ${facilityMineral.quantity} tons of ${facilityMineral.mineral.name}
                 </div>
             `
         }).join("")
@@ -30,3 +32,15 @@ export const FacilityMinerals = async () => {
 
     return html
 }
+
+const handleFacilityMineralChange = (event) => {
+    if (event.target.name === "facility-mineral") {
+        const selectedFacilityMineralId = parseInt(event.target.value)
+        setFacilityMineral(selectedFacilityMineralId)
+    } 
+}
+
+document.addEventListener(
+    "change",
+    handleFacilityMineralChange
+)
